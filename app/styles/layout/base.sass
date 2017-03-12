@@ -1,0 +1,120 @@
+*
+    box-sizing: border-box
+
+body
+    +linear-gradient(to right, $color-gradient-start, $color-gradient-end)
+    padding: 30px
+    overflow-x: hidden
+    font-family: $font-sans
+    color: $color-text-primary
+
+.btn
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    top: -8px
+    width: 40px
+    height: 40px
+    border: none
+    outline: none
+
+.header-sign
+    width: 280px
+    line-height: .9
+    font:
+        family: $font-serif
+        weight: 700
+        size: 64px
+
+.content-wrapper
+    max-width: 1700px
+    height: 91vh
+    padding: 20px
+    border-radius: 2px
+    margin: 0 auto
+    background-color: #fff
+
+.header-section
+    display: flex
+    justify-content: space-between
+    align-items: flex-start
+
+.dropdown-bg
+    position: absolute
+    width: 100px
+    height: 100px
+    border-radius: 2px
+    background-color: #fdfdfd
+    box-shadow: 0 2px 8px rgba(0,0,0,.15)
+    opacity: 0
+    transition: all .1s ease
+
+    &.open
+        opacity: 1
+
+    &::before
+        content: ''
+        position: absolute
+        left: calc(50% - 5px)
+        top: -4px
+        width: 10px
+        height: 10px
+        border-radius: 2px
+        background: #fdfdfd
+        box-shadow: inherit
+        transform: rotate(45deg)
+
+    &::after
+        content: ''
+        position: absolute
+        top: 0
+        left: calc(50% - 20px)
+        width: 40px
+        height: 12px
+        background: #fdfdfd
+
+.main-nav
+    margin-top: 25px
+
+.nav-list
+    display: flex
+    justify-content: space-around
+    width: 550px
+
+    > li
+        position: relative
+        padding: 0 25px 0 25px
+        text-transform: uppercase
+        font:
+            weight: 700
+            size: 14px
+        letter-spacing: 1.2px
+        transition: color .1s ease
+
+        &.show .list-element
+            display: flex
+            flex-flow: column nowrap
+
+        &.visible .list-element
+            opacity: 1
+
+        &:hover a
+            color: rgba($color-text-primary, .7)
+
+        &:last-child
+            margin-left: auto
+
+.list-element
+    display: none
+    position: absolute
+    left: -40%
+    padding: 20px
+    margin-top: 10px
+    opacity: 0
+    will-change: transform
+    transition: all .4s ease
+
+    &.one,
+    &.three
+        min-width: 200px
